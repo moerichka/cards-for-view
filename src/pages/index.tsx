@@ -25,7 +25,7 @@ export default function Home() {
             <div className={s.lock}>
               <Image fill src="/images/lock.svg" alt="lock" />
             </div>
-            Explore
+            <span className={s.buttonText}>Explore</span>
           </button>
         </div>
         <div className={s.footer}>

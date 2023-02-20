@@ -44,9 +44,6 @@
   animation-timing-function: ease-in-out;
 }
 
-.lock{
-  
-}
 
 .button {
   height: 70px;
@@ -58,8 +55,31 @@
   font-size: 35px;
   transition: 0.3s;
   text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+
+  .buttonText{
+    position: relative;
+    z-index: 2;
+  }
+
+  .lock{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+    width: 69px;
+    height: 92px;
+    opacity: 0;
+    z-index: 1;
+  }
   &:hover {
     background-color: hsla(216, 23%, 66%, 1);
+
+    .lock{
+      opacity: 1;
+    }
   }
 }
 
