@@ -1,0 +1,96 @@
+@use "variables" as v;
+
+.bannerPage {
+  width: 100vw;
+  height: var(--height, 100vh);
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.centerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.logoWrapper {
+  position: relative;
+  width: 150px;
+  height: 92px;
+}
+
+.cube {
+  position: relative;
+  width: 100vw;
+  aspect-ratio: 1;
+  max-width: 490px;
+  animation-name: floating;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+.button {
+  height: 70px;
+  background-color: hsla(32, 100%, 54%, 1);
+  color: white;
+  min-width: 150px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 35px;
+  transition: 0.3s;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 460px;
+  gap: 10px;
+  justify-content: space-between;
+  transition: 0.3s;
+  padding: 0 20px;
+}
+
+.link {
+  color: hsla(209, 51%, 24%, 1);
+  text-decoration-line: underline;
+  font-size: 12px;
+  transition: 0.3s;
+
+  &:hover {
+    text-decoration-line: underline;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
