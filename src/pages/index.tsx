@@ -22,7 +22,10 @@ export default function Home() {
             <Image fill src="/images/cube.png" alt="sky-banner" />
           </div>
           <button type="button" className={s.button} disabled>
-            Play
+            <div className={s.lock}>
+              <Image fill src="/images/lock.svg" alt="lock" />
+            </div>
+            Explore
           </button>
         </div>
         <div className={s.footer}>
@@ -37,7 +40,8 @@ export default function Home() {
           </Link>
         </div>
         <div className={s.background}>
-          <Image fill
+          <Image
+            fill
             src="/images/skyBanner.jpg"
             style={{ objectFit: "cover" }}
             alt="sky-banner"

@@ -44,17 +44,22 @@
   animation-timing-function: ease-in-out;
 }
 
+.lock{
+  
+}
+
 .button {
   height: 70px;
   background-color: hsla(32, 100%, 54%, 1);
   color: white;
-  min-width: 150px;
+  padding: 0 39px;
   border-radius: 25px;
   font-weight: 700;
   font-size: 35px;
   transition: 0.3s;
+  text-transform: uppercase;
   &:hover {
-    opacity: 0.5;
+    background-color: hsla(216, 23%, 66%, 1);
   }
 }
 
