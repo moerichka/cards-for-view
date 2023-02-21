@@ -16,10 +16,20 @@ export default function Home() {
       <div className={s.bannerPage}>
         <div className={s.centerContent}>
           <div className={s.logoWrapper}>
-            <Image fill src="/images/logoForBanner.svg" alt="sky-banner" />
+            <Image
+              fill
+              src="/images/logo.png"
+              alt="sky-banner"
+              style={{ objectFit: "contain" }}
+            />
           </div>
           <div className={s.cube}>
-            <Image fill src="/images/cube.png" alt="sky-banner" />
+            <Image
+              fill
+              src="/images/cube.png"
+              alt="sky-banner"
+              style={{ objectFit: "contain" }}
+            />
           </div>
           <button type="button" className={s.button} disabled>
             <div className={s.lock}>

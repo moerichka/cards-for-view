@@ -24,12 +24,13 @@
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+  max-height: calc(var(--height, 100vh) - 20%);
 }
 
 .logoWrapper {
   position: relative;
-  width: 150px;
-  height: 92px;
+  width: 116px;
+  height: 68px;
 }
 
 .cube {
@@ -57,6 +58,8 @@
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
+  font-family: HeadingNow;
+  letter-spacing: 0.1em;
 
   .buttonText{
     position: relative;
@@ -104,6 +107,8 @@
   text-decoration-line: underline;
   font-size: 12px;
   transition: 0.3s;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
 
   &:hover {
     text-decoration-line: underline;
