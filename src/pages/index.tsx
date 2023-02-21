@@ -4,6 +4,9 @@ import Link from "next/link";
 
 import s from "styles/home.module.scss";
 
+import cubeImage from "../../public/images/cube.png";
+import backgroundImage from "../../public/images/skyBanner.jpg";
+
 export default function Home() {
   return (
     <>
@@ -26,9 +29,10 @@ export default function Home() {
           <div className={s.cube}>
             <Image
               fill
-              src="/images/cube.png"
+              src={cubeImage}
               alt="sky-banner"
               style={{ objectFit: "contain" }}
+              placeholder="blur"
             />
           </div>
           <div className={s.button}>
@@ -44,22 +48,32 @@ export default function Home() {
           </div>
         </div>
         <div className={s.footer}>
-          <Link href="/" className={s.link}>
+          <a
+            href="https://mixr.gitbook.io/ru/mixr/legal/terms"
+            className={s.link}
+          >
             Terms of use
-          </Link>
-          <Link href="/" className={s.link}>
+          </a>
+          <a
+            href="https://mixr.gitbook.io/en/mixr/legal/cookie"
+            className={s.link}
+          >
             Сookie policy
-          </Link>
-          <Link href="/" className={s.link}>
+          </a>
+          <a
+            href="https://mixr.gitbook.io/en/mixr/legal/privacy"
+            className={s.link}
+          >
             Privacy policy
-          </Link>
+          </a>
         </div>
         <div className={s.background}>
           <Image
             fill
-            src="/images/skyBanner.jpg"
+            src={backgroundImage}
             style={{ objectFit: "cover" }}
             alt="sky-banner"
+            placeholder="blur"
           />
         </div>
       </div>
