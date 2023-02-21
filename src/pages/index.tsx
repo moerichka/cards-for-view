@@ -33,6 +33,7 @@ export default function Home() {
               alt="sky-banner"
               style={{ objectFit: "contain" }}
               placeholder="blur"
+              quality={100}
             />
           </div>
           <div className={s.button}>
@@ -71,6 +72,7 @@ export default function Home() {
           <Image
             fill
             src={backgroundImage}
+            quality={100}
             style={{ objectFit: "cover" }}
             alt="sky-banner"
             placeholder="blur"
