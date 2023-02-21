@@ -59,6 +59,7 @@
   display: block;
   overflow: hidden;
   font-family: HeadingNow;
+  background-color: hsla(216, 23%, 66%, 1);
   text-align: center;
   min-width: 150px;
 
@@ -115,6 +116,7 @@
     background-color: hsla(216, 23%, 66%, 1);
     content: attr(data-back);
     transform: translateY(-50%) rotateX(90deg);
+    overflow: hidden;
   }
 
   &:hover {
