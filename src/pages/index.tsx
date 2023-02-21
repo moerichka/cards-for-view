@@ -31,12 +31,17 @@ export default function Home() {
               style={{ objectFit: "contain" }}
             />
           </div>
-          <button type="button" className={s.button} disabled>
-            <div className={s.lock}>
-              <Image fill src="/images/lock.svg" alt="lock" />
+          <div className={s.button}>
+            <div className={s.front}>
+              <span className={s.buttonText}>Explore</span>
             </div>
-            <span className={s.buttonText}>Explore</span>
-          </button>
+            <div className={s.back}>
+              <div className={s.lock}>
+                <Image fill src="/images/lock.svg" alt="lock" />
+              </div>
+              <span className={s.buttonText}>Locked</span>
+            </div>
+          </div>
         </div>
         <div className={s.footer}>
           <Link href="/" className={s.link}>

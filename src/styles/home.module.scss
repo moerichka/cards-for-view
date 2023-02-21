@@ -43,45 +43,79 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
+  margin-bottom: 40px;
 }
-
 
 .button {
   height: 70px;
-  background-color: hsla(32, 100%, 54%, 1);
   color: white;
-  padding: 0 39px;
   border-radius: 25px;
   font-weight: 700;
   font-size: 35px;
-  transition: 0.3s;
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
   font-family: HeadingNow;
   letter-spacing: 0.1em;
+  text-align: center;
 
-  .buttonText{
+  .buttonText {
     position: relative;
     z-index: 2;
   }
 
-  .lock{
+  .lock {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    transition: 0.3s;
     width: 69px;
     height: 92px;
-    opacity: 0;
     z-index: 1;
   }
-  &:hover {
-    background-color: hsla(216, 23%, 66%, 1);
 
-    .lock{
+  $speed: 0.4s;
+
+  .front {
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    transition: $speed;
+    position: relative;
+    background-color: hsla(32, 100%, 54%, 1);
+    transform: translateY(0) rotateX(0);
+  }
+
+  .back {
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $speed;
+    position: absolute;
+    background-color: hsla(216, 23%, 66%, 1);
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+  }
+
+  &:hover {
+    .front {
+      // opacity: 0;
+      transform: translateY(50%) rotateX(90deg);
+    }
+
+    .back {
       opacity: 1;
+      transform: translateY(0) rotateX(0);
     }
   }
 }
