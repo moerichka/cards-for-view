@@ -53,6 +53,7 @@
   height: 70px;
   color: white;
   border-radius: 25px;
+  -webkit-border-radius: 25px;
   font-size: 35px;
   text-transform: uppercase;
   position: relative;
@@ -127,6 +128,7 @@
 
     .back {
       border-radius: 25px;
+      -webkit-border-radius: 25px;
       opacity: 1;
       transform: translateY(0) rotateX(0);
     }
