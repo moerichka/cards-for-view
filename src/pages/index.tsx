@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 
 import s from "styles/home.module.scss";
 
@@ -21,7 +20,7 @@ export default function Home() {
             <Image
               fill
               src="/images/logo.png"
-              alt="sky-banner"
+              alt="Logo"
               style={{ objectFit: "contain" }}
             />
           </div>
@@ -29,7 +28,7 @@ export default function Home() {
             <Image
               fill
               src={cubeImage}
-              alt="sky-banner"
+              alt=""
               style={{ objectFit: "contain" }}
               placeholder="blur"
               quality={100}
@@ -41,7 +40,7 @@ export default function Home() {
             </div>
             <div className={s.back}>
               <div className={s.lock}>
-                <Image fill src="/images/lock.svg" alt="lock" />
+                <Image fill src="/images/lock.svg" alt="" />
               </div>
               <span className={s.buttonText}>Locked</span>
             </div>
@@ -73,7 +72,7 @@ export default function Home() {
             src={backgroundImage}
             quality={100}
             style={{ objectFit: "cover" }}
-            alt="sky-banner"
+            alt=""
             placeholder="blur"
           />
         </div>
