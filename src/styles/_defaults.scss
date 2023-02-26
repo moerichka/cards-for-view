@@ -2,6 +2,7 @@
 
 :root {
   --main-color: hsla(32, 100%, 62%, 1);
+  --dark-blue: hsla(220, 18%, 91%, 1);
 }
 
 /* ---nullification--- */
@@ -96,43 +97,12 @@ h6 {
 /* ::-webkit-scrollbar {display: none;} */
 /* ---end nullification--- */
 
-[class^="icon-"],
-[class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+$primary-color: var(--dark-blue);
+@import "loaders.css/src/animations/line-scale-pulse-out-rapid.scss";
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.loader-hidden {
+  display: none;
 }
-
-.icon-book:before {
-  content: "\e900";
-}
-.icon-coin:before {
-  content: "\e901";
-}
-.icon-discord:before {
-  content: "\e902";
-}
-.icon-instagram:before {
-  content: "\e903";
-}
-.icon-telegram:before {
-  content: "\e904";
-}
-.icon-timer:before {
-  content: "\e905";
-}
-.icon-twitter:before {
-  content: "\e906";
-}
-.icon-youtube:before {
-  content: "\e907";
+.loader-active {
+  display: block;
 }
