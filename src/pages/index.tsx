@@ -32,8 +32,7 @@ export default function Home() {
 
   const loadingClassName = useMemo(
     () =>
-      `${s.loadingStub} ${isAllImagesLoaded ? s.hidden : ""} ${
-        isHiding ? s.hiding : ""
+      `${s.loadingStub} ${isAllImagesLoaded ? s.hidden : ""} ${isHiding ? s.hiding : ""
       }`,
     [isAllImagesLoaded, isHiding],
   );
@@ -41,7 +40,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Trace</title>
+        <title>Meta Trace — AR play-and-earn Metaverse in your phone</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#499EDD" />
         <link rel="icon" href="/favicon.ico" />
