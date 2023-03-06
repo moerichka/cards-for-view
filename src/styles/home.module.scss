@@ -49,121 +49,15 @@
   margin-bottom: 45px;
 }
 
-.button {
-  height: 70px;
-  color: white;
-  border-radius: 25px;
-  -webkit-border-radius: 25px;
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-  font-size: 35px;
-  text-transform: uppercase;
-  position: relative;
-  display: block;
-  overflow: hidden;
-  font-family: HeadingNow;
-  background-color: hsla(216, 23%, 66%, 1);
-  text-align: center;
-  min-width: 150px;
-
-  @media (max-width: 400px) {
-    height: 50px;
-    font-size: 30px;
-    min-width: 120px;
-    border-radius: 20px;
-  }
-
-  .buttonText {
-    position: relative;
-    z-index: 2;
-  }
-
-  .lock {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 69px;
-    height: 92px;
-    z-index: 1;
-  }
-
-  $speed: 0.4s;
-
-  .front {
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 30px;
-    transition: $speed;
-    position: relative;
-    background-color: hsla(32, 100%, 54%, 1);
-    transform: translateY(0) rotateX(0);
-  }
-
-  .back {
-    height: 100%;
-    top: 0;
-    left: 0;
-    // opacity: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: $speed;
-    position: absolute;
-    background-color: hsla(216, 23%, 66%, 1);
-    content: attr(data-back);
-    transform: translateY(-50%) rotateX(90deg);
-    overflow: hidden;
-  }
-
-  &:hover {
-    .front {
-      // opacity: 0;
-      transform: translateY(50%) rotateX(90deg);
-    }
-
-    .back {
-      // border-radius: 25px;
-      // -webkit-border-radius: 25px;
-      opacity: 1;
-      transform: translateY(0) rotateX(0);
-    }
-  }
-}
-
 .footer {
   position: absolute;
   bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
-  display: flex;
-  flex-direction: row;
   width: 100%;
   max-width: 460px;
-  gap: 10px;
-  justify-content: space-between;
-  transition: 0.3s;
   padding: 0 20px;
-}
-
-.link {
-  color: #8ca7c0;
-  text-decoration-line: underline;
-  font-size: 12px;
-  transition: 0.3s;
-  font-family: Roboto, sans-serif;
-  font-weight: 500;
-
-  &:hover {
-    text-decoration-line: underline;
-    transform: translateY(-2px);
-  }
 }
 
 @keyframes floating {

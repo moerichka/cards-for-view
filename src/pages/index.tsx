@@ -3,6 +3,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Loader from "react-loaders";
 
+import ButtonToInput from "components/ButtonToInput";
+import PoliciesLinks from "components/PoliciesLinks";
+
 import s from "styles/home.module.scss";
 
 import cubeImage from "../../public/images/cube.png";
@@ -32,7 +35,8 @@ export default function Home() {
 
   const loadingClassName = useMemo(
     () =>
-      `${s.loadingStub} ${isAllImagesLoaded ? s.hidden : ""} ${isHiding ? s.hiding : ""
+      `${s.loadingStub} ${isAllImagesLoaded ? s.hidden : ""} ${
+        isHiding ? s.hiding : ""
       }`,
     [isAllImagesLoaded, isHiding],
   );
@@ -65,37 +69,10 @@ export default function Home() {
               onLoad={incrementLoadedImagesCount}
             />
           </div>
-          <div className={s.button}>
-            <div className={s.front}>
-              <span className={s.buttonText}>Explore</span>
-            </div>
-            <div className={s.back}>
-              <div className={s.lock}>
-                <Image fill src="/images/lock.svg" alt="" />
-              </div>
-              <span className={s.buttonText}>Locked</span>
-            </div>
-          </div>
+          <ButtonToInput />
         </div>
         <div className={s.footer}>
-          <a
-            href="https://mixr.gitbook.io/ru/mixr/legal/terms"
-            className={s.link}
-          >
-            Terms of use
-          </a>
-          <a
-            href="https://mixr.gitbook.io/en/mixr/legal/cookie"
-            className={s.link}
-          >
-            Сookie policy
-          </a>
-          <a
-            href="https://mixr.gitbook.io/en/mixr/legal/privacy"
-            className={s.link}
-          >
-            Privacy policy
-          </a>
+          <PoliciesLinks />
         </div>
         <div className={s.background}>
           <Image
