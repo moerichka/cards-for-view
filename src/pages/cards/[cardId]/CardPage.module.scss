@@ -78,17 +78,21 @@ $paddingBottom: 42px;
   gap: 25px;
 }
 
+.tabWrapper {
+  position: relative;
+}
+
 .footer {
   grid-area: footer;
   max-width: 319px;
 
-  .buttons{
+  .buttons {
     display: flex;
     flex-direction: row;
     gap: 25px;
   }
 
-  .button{
+  .button {
     width: 100%;
     max-width: 144px;
   }
@@ -98,13 +102,13 @@ $paddingBottom: 42px;
   }
 }
 
-.chapterText{
-    font-weight: 500;
-    font-size: 20px;
-    font-family: Manrope;
-    line-height: 150%;
-    max-width: 85%;
-    color: hsla(208, 15%, 46%, 1);
+.chapterText {
+  font-weight: 500;
+  font-size: 20px;
+  font-family: Manrope;
+  line-height: 150%;
+  max-width: 85%;
+  color: hsla(208, 15%, 46%, 1);
 }
 
 .chapterBanner {

@@ -40,6 +40,11 @@ function CardPage() {
     );
   }
 
+  if (thisChapter.status !== "available") {
+    router.push("/cards");
+    return <div className={s.cardPage} />;
+  }
+
   return (
     <div className={s.cardPage}>
       <div className={s.container}>
@@ -81,6 +86,13 @@ function CardPage() {
             {chapters.map((chapter) => (
               <div className={s.tabWrapper} key={chapter.id}>
                 <ChapterTab chapter={chapter} />
+                {chapter.status === "available" && (
+                  <Link
+                    href={`/cards/${chapter.id}`}
+                    className="linkFill"
+                    style={{ zIndex: 5 }}
+                  />
+                )}
               </div>
             ))}
           </div>
