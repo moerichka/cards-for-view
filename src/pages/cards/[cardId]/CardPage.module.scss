@@ -1,0 +1,153 @@
+$headerHeight: 58px;
+$paddingTop: 57.5px;
+$paddingBottom: 42px;
+
+.cardPage {
+  background-color: hsla(218, 57%, 97%, 1);
+  min-height: var(--height);
+}
+.container {
+  max-width: 1740px;
+  padding: 0 50px;
+  margin: 0 auto;
+}
+.grid {
+  display: grid;
+  grid-template-columns:
+    minmax(360px, 432px) minmax(20px, 128px) minmax(700px, 1fr)
+    40px 100px;
+  grid-template-rows: $paddingTop $headerHeight 1fr auto $paddingBottom;
+  grid-template-areas:
+    ". . chapters . tabs"
+    "header . chapters . tabs"
+    "titlePart . chapters . tabs"
+    "footer . chapters . tabs"
+    ". . chapters . tabs";
+  height: var(--height);
+}
+
+.header {
+  grid-area: header;
+  .logoWrapper {
+    position: relative;
+    width: 100px;
+    height: $headerHeight;
+  }
+}
+
+.titlePart {
+  grid-area: titlePart;
+  color: hsla(208, 15%, 46%, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 60px;
+  gap: 84px;
+
+  .title {
+    font-family: HeadingNow;
+    text-transform: uppercase;
+    font-size: 70px;
+    line-height: 90%;
+  }
+
+  .chapterNumber {
+    font-family: HeadingNow;
+    text-transform: uppercase;
+    font-size: 30px;
+    line-height: 90%;
+  }
+}
+
+.chapter {
+  grid-area: chapters;
+  display: flex;
+  flex-direction: column;
+  padding-top: $paddingTop;
+  padding-bottom: $paddingBottom;
+  gap: 25px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.tabs {
+  grid-area: tabs;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.footer {
+  grid-area: footer;
+  max-width: 319px;
+
+  .buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+  }
+
+  .button{
+    width: 100%;
+    max-width: 144px;
+  }
+
+  .link {
+    color: hsla(209, 51%, 24%, 1);
+  }
+}
+
+.chapterText{
+    font-weight: 500;
+    font-size: 20px;
+    font-family: Manrope;
+    line-height: 150%;
+    max-width: 85%;
+    color: hsla(208, 15%, 46%, 1);
+}
+
+.chapterBanner {
+  width: 100%;
+  height: 400px;
+  min-height: 400px;
+  overflow: hidden;
+  border-radius: 30px;
+  position: relative;
+  color: white;
+
+  .imageWrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .dateWrapper {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: 60px;
+    bottom: 35px;
+    z-index: 4;
+    overflow: hidden;
+  }
+
+  .date {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: HeadingNow;
+    font-size: 32px;
+    text-transform: uppercase;
+
+    background-color: hsla(0, 0%, 100%, 0.3);
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+  }
+}

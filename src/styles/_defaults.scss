@@ -97,6 +97,12 @@ h6 {
 /* ::-webkit-scrollbar {display: none;} */
 /* ---end nullification--- */
 
+.linkFill{
+  position: absolute;
+  inset: 0 0 0 0;
+  opacity: 0;
+}
+
 $primary-color: var(--dark-blue);
 @import "loaders.css/src/animations/line-scale-pulse-out-rapid.scss";
 

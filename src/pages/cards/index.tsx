@@ -5,66 +5,12 @@ import PoliciesLinks from "components/PoliciesLinks";
 import ChapterCard from "components/ChapterCard";
 import ChapterTab from "components/ChapterTab";
 
-import { Chapter } from "types/chapter";
+import { chapters } from "data/chapters";
 
-import s from "./cards.module.scss";
+import s from "./CardsPage.module.scss";
 
-const chapters: Chapter[] = [
-  {
-    id: 0,
-    image: "/images/chapter2.jpg",
-    chapterNumber: 1,
-    title: "REAL-WORLD METAVERSE",
-    description:
-      "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
-    date: "13 mar",
-    status: "available",
-  },
-  {
-    id: 1,
-    image: "/images/chapter1.jpg",
-    chapterNumber: 2,
-    title: "Path to Reward",
-    description:
-      "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
-    date: "1 dec",
-    status: "soon",
-  },
-  {
-    id: 2,
-    image: "/images/chapter1.jpg",
-    chapterNumber: 3,
-    title: "REAL-WORLD METAVERSE",
-    description:
-      "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
-    date: "1 dec",
-    status: "locked",
-  },
-  {
-    id: 3,
-    image: "/images/chapter2.jpg",
-    chapterNumber: 4,
-    title: "REAL-WORLD METAVERSE",
-    description:
-      "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
-    date: "1 dec",
-    status: "locked",
-  },
-  {
-    id: 5,
-    image: "/images/chapter1.jpg",
-    chapterNumber: 5,
-    title: "REAL-WORLD METAVERSE",
-    description:
-      "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
-    date: "1 dec",
-    status: "locked",
-  },
-];
-
-function Cards() {
+function CardsPage() {
   const cardRefArray = useRef<HTMLDivElement[] | null[]>([]);
-  console.log("cardRef: ", cardRefArray);
 
   const onScroll = (indexOfChapter: number) => () => {
     cardRefArray.current[indexOfChapter]?.scrollIntoView({
@@ -89,8 +35,12 @@ function Cards() {
           <div className={s.titlePart}>
             <div className={s.title}>REAL-WORLD METAVERSE</div>
             <div className={s.description}>
-              The new AR Game on a real world map with a different Social-Fi and
-              Game-Fi mechanics
+              Immerse yourself in the fascinating story about where it all
+              started... <br />
+              <br /> Each card is a separate part of an interactive story that
+              opens the door to future events, NFT, and the MetaTrace app!{" "}
+              <br />
+              <br /> Hurry up to open the first part!
             </div>
           </div>
           <div className={s.chapters}>
@@ -121,4 +71,4 @@ function Cards() {
   );
 }
 
-export default Cards;
+export default CardsPage;

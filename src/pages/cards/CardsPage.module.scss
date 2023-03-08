@@ -13,7 +13,7 @@ $paddingBottom: 42px;
 }
 .grid {
   display: grid;
-  grid-template-columns: minmax(300px, 364px) minmax(50px, 197px) 1fr 40px 100px;
+  grid-template-columns: minmax(360px, 432px) minmax(20px, 128px) minmax(700px, 1fr) 40px 100px;
   grid-template-rows: $paddingTop $headerHeight 1fr auto $paddingBottom;
   grid-template-areas:
     ". . chapters . tabs"
@@ -35,7 +35,6 @@ $paddingBottom: 42px;
 
 .titlePart {
   grid-area: titlePart;
-  max-width: 364px;
   color: hsla(208, 15%, 46%, 1);
   display: flex;
   flex-direction: column;

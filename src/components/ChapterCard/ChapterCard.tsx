@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Chapter } from "types/chapter";
 
@@ -39,6 +40,13 @@ function ChapterCard({ chapter }: Props) {
           {chapter.status === "available" ? chapter.date : "soon"}
         </div>
       </div>
+      {chapter.status === "available" && (
+        <Link
+          href={`/cards/${chapter.id}`}
+          className="linkFill"
+          style={{ zIndex: 5 }}
+        />
+      )}
       {chapter.status === "soon" && <div className={s.backgroundBlur} />}
       {chapter.status === "locked" && <div className={s.backgroundMatte} />}
     </div>
