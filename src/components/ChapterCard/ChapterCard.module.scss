@@ -19,7 +19,7 @@
 
 .title {
   position: absolute;
-  top: 54px;
+  bottom: 36px;
   left: 58px;
   max-width: 245px;
   font-size: 50px;
@@ -27,6 +27,11 @@
   font-family: HeadingNow;
   text-transform: uppercase;
   z-index: 4;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 11px;
 }
 
 .chapterNumber {
@@ -72,4 +77,19 @@
   background-color: hsla(0, 0%, 100%, 0.3);
   backdrop-filter: blur(25px);
   border-radius: 20px;
+}
+
+.backgroundBlur {
+  position: absolute;
+  inset: 0 0 0 0;
+  z-index: 2;
+  background: hsla(208, 15%, 46%, 0.25);
+  backdrop-filter: blur(15px);
+}
+.backgroundMatte {
+  position: absolute;
+  inset: 0 0 0 0;
+  z-index: 2;
+  background-color: hsla(211, 47%, 83%, 0.8);
+  backdrop-filter: blur(50px);
 }

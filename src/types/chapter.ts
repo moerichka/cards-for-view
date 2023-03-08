@@ -5,4 +5,5 @@ export interface Chapter {
   title: string;
   description: string;
   date: string;
+  status: "locked" | "soon" | "available";
 }

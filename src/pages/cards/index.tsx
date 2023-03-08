@@ -5,53 +5,60 @@ import PoliciesLinks from "components/PoliciesLinks";
 import ChapterCard from "components/ChapterCard";
 import ChapterTab from "components/ChapterTab";
 
+import { Chapter } from "types/chapter";
+
 import s from "./cards.module.scss";
 
-const chapters = [
+const chapters: Chapter[] = [
   {
     id: 0,
-    image: "/images/chapter1.jpg",
-    chapterNumber: 1,
-    title: "REAL-WORLD METAVERSE",
-    description:
-      "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
-    date: "1 dec",
-  },
-  {
-    id: 1,
     image: "/images/chapter2.jpg",
     chapterNumber: 1,
     title: "REAL-WORLD METAVERSE",
     description:
       "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
+    date: "13 mar",
+    status: "available",
+  },
+  {
+    id: 1,
+    image: "/images/chapter1.jpg",
+    chapterNumber: 2,
+    title: "Path to Reward",
+    description:
+      "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
     date: "1 dec",
+    status: "soon",
   },
   {
     id: 2,
     image: "/images/chapter1.jpg",
-    chapterNumber: 1,
+    chapterNumber: 3,
     title: "REAL-WORLD METAVERSE",
     description:
       "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
     date: "1 dec",
+    status: "locked",
   },
   {
     id: 3,
     image: "/images/chapter2.jpg",
-    chapterNumber: 1,
+    chapterNumber: 4,
     title: "REAL-WORLD METAVERSE",
     description:
       "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
     date: "1 dec",
+    status: "locked",
   },
   {
     id: 5,
     image: "/images/chapter1.jpg",
-    chapterNumber: 1,
+    chapterNumber: 5,
     title: "REAL-WORLD METAVERSE",
     description:
       "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
     date: "1 dec",
+    status: "locked",
   },
 ];
 

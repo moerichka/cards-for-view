@@ -30,7 +30,7 @@ function ButtonToInput() {
 
   const onGoClick = () => {
     setUserEmail(email);
-    // router.push("/cards");
+    router.push("/cards");
   };
 
   const onBlur = () => {
