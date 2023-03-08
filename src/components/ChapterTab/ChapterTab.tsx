@@ -12,21 +12,38 @@ interface Props {
 function ChapterTab({ chapter }: Props) {
   return (
     <div className={s.tab}>
-      {chapter.date && <div className={s.date}>{chapter.date}</div>}
-      {chapter.chapterNumber && (
-        <div className={s.chapterNumber}>Chapter {chapter.chapterNumber}</div>
+      {chapter.status === "available" && (
+        <div className={s.date}>{chapter.date}</div>
       )}
-      {chapter.image && (
-        <div className={s.imageWrapper}>
+      {chapter.status === "soon" && <div className={s.date}>Soon</div>}
+      {chapter.status === "locked" && (
+        <div className={s.date}>
           <Image
-            src={chapter.image}
-            alt=""
+            src="/images/lockWhite.svg"
+            width={22.5}
+            height={30}
             style={{ objectFit: "cover" }}
-            fill
+            alt=""
           />
         </div>
       )}
-      <div className={s.background} />
+      {chapter.chapterNumber && chapter.status !== "locked" && (
+        <div className={s.chapterNumber}>Chapter {chapter.chapterNumber}</div>
+      )}
+      {chapter.image && chapter.status === "available" && (
+        <>
+          <div className={s.imageWrapper}>
+            <Image
+              src={chapter.image}
+              alt=""
+              style={{ objectFit: "cover" }}
+              fill
+            />
+          </div>
+          <div className={s.background} />
+        </>
+      )}
+      {chapter.status !== "available" && <div className={s.backgroundMatte} />}
     </div>
   );
 }
