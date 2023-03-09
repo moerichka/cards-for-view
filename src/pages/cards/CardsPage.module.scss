@@ -1,10 +1,11 @@
-$headerHeight: 58px;
-$paddingTop: 57.5px;
-$paddingBottom: 42px;
+@import "~/src/styles/variables";
 
 .cards {
   background-color: hsla(218, 57%, 97%, 1);
-  min-height: var(--height);
+  height: var(--height);
+  @media (max-width: $breakPoint1) {
+    overflow-y: auto;
+  }
 }
 .container {
   max-width: 1740px;
@@ -13,7 +14,9 @@ $paddingBottom: 42px;
 }
 .grid {
   display: grid;
-  grid-template-columns: minmax(360px, 432px) minmax(20px, 128px) minmax(700px, 1fr) 40px 100px;
+  grid-template-columns:
+    minmax(360px, 432px) minmax(20px, 128px) minmax(700px, 1fr)
+    40px 100px;
   grid-template-rows: $paddingTop $headerHeight 1fr auto $paddingBottom;
   grid-template-areas:
     ". . chapters . tabs"
@@ -22,6 +25,18 @@ $paddingBottom: 42px;
     "footer . chapters . tabs"
     ". . chapters . tabs";
   height: var(--height);
+
+  @media (max-width: $breakPoint1) {
+    grid-template-columns: 1fr 40px 100px;
+    grid-template-rows: $paddingTop $headerHeight auto auto $paddingBottom;
+    grid-template-areas:
+      ". . ."
+      "header header header"
+      "titlePart titlePart titlePart"
+      "chapters . tabs"
+      "footer footer footer";
+    height: auto;
+  }
 }
 
 .header {
@@ -55,6 +70,11 @@ $paddingBottom: 42px;
     font-size: 20px;
     line-height: 125%;
   }
+
+  @media (max-width: $breakPoint1) {
+    margin-top: 100px;
+    max-width: 500px;
+  }
 }
 
 .chapters {
@@ -74,11 +94,24 @@ $paddingBottom: 42px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+
+  @media (max-width: $breakPoint1) {
+    padding-top: $headerHeight;
+    height: min-content;
+    margin: 0;
+    position: sticky;
+    top: 0;
+  }
 }
 
 .footer {
   grid-area: footer;
+  width: 100%;
   max-width: 319px;
+
+  @media (max-width: $breakPoint1) {
+    margin: 0 auto;
+  }
 
   .link {
     color: hsla(209, 51%, 24%, 1);
