@@ -22,13 +22,14 @@ function ChapterCard({ chapter }: Props) {
       <div className={s.title}>
         {chapter.status === "locked" ? (
           <>
-            <Image
-              src="/images/lockWhite.svg"
-              style={{ objectFit: "cover" }}
-              width={30}
-              height={40}
-              alt=""
-            />
+            <div className={s.lockWrapper}>
+              <Image
+                src="/images/lockWhite.svg"
+                style={{ objectFit: "cover" }}
+                fill
+                alt=""
+              />
+            </div>
             <span>locked</span>
           </>
         ) : (

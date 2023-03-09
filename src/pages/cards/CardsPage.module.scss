@@ -7,12 +7,11 @@
     overflow-y: auto;
   }
 }
-.container {
+.grid {
   max-width: 1740px;
   padding: 0 50px;
   margin: 0 auto;
-}
-.grid {
+
   display: grid;
   grid-template-columns:
     minmax(360px, 432px) minmax(20px, 128px) minmax(700px, 1fr)
@@ -37,6 +36,21 @@
       "footer footer footer";
     height: auto;
   }
+  @media (max-width: $breakPoint2) {
+    grid-template-columns: 1fr;
+    grid-template-rows: $paddingTop $headerHeight auto auto $paddingBottom;
+    grid-template-areas:
+      "."
+      "header"
+      "titlePart"
+      "chapters"
+      "footer"
+      ".";
+  }
+  @media (max-width: $breakPoint3) {
+    grid-template-rows: $paddingTop $headerHeightTablet auto auto $paddingBottom;
+    padding: 0 21px;
+  }
 }
 
 .header {
@@ -45,6 +59,11 @@
     position: relative;
     width: 100px;
     height: $headerHeight;
+
+    @media (max-width: $breakPoint3) {
+      width: 78px;
+      height: $headerHeightTablet;
+    }
   }
 }
 
@@ -62,6 +81,10 @@
     text-transform: uppercase;
     font-size: 70px;
     line-height: 90%;
+
+    @media (max-width: $breakPoint3) {
+      font-size: 46px;
+    }
   }
 
   .description {
@@ -69,11 +92,21 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 125%;
+
+    @media (max-width: $breakPoint3) {
+      font-size: 15.5px;
+    }
   }
 
   @media (max-width: $breakPoint1) {
     margin-top: 100px;
     max-width: 500px;
+  }
+  @media (max-width: $breakPoint3) {
+    gap: 31px;
+    margin-top: 91px;
+    padding-bottom: 0;
+    max-width: 300px;
   }
 }
 
@@ -86,6 +119,11 @@
   gap: 25px;
   height: 100%;
   overflow-y: auto;
+
+  @media (max-width: $breakPoint3) {
+    padding-top: 66px;
+    gap: 46px;
+  }
 }
 
 .tabs {
@@ -101,6 +139,9 @@
     margin: 0;
     position: sticky;
     top: 0;
+  }
+  @media (max-width: $breakPoint2) {
+    display: none;
   }
 }
 
