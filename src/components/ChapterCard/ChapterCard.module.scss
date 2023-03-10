@@ -93,7 +93,11 @@
   overflow: hidden;
 
   @media (max-width: $breakPoint3) {
-    display: none;
+    right: 22px;
+    top: 22px;
+    bottom: unset;
+    width: 75px;
+    height: 75px;
   }
 }
 
@@ -111,6 +115,11 @@
   background-color: hsla(0, 0%, 100%, 0.3);
   backdrop-filter: blur(25px);
   border-radius: 20px;
+
+  @media (max-width: $breakPoint3) {
+    font-size: 21px;
+    border-radius: 15px;
+  }
 }
 
 .backgroundBlur {
