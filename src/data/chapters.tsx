@@ -5,7 +5,7 @@ import { Chapter } from "types/chapter";
 export const chapters: Chapter[] = [
   {
     id: 0,
-    image: "/images/chapter2.jpg",
+    image: "/images/chapter3.jpg",
     chapterNumber: 1,
     title: "Start of the Adventure",
     description:
@@ -14,24 +14,31 @@ export const chapters: Chapter[] = [
     status: "available",
     text: (
       <>
-        Это был самый обычный день в моём личном уголке интернета. Я по классике
-        сбежал от своей скучной реальности в любимую игру, прошёл очередное
-        приключение и добрался до сундука с золотом. Мне осталось собрать совсем
-        немного ресурсов, чтобы выйти на новый уровень и получить мега-награду,
-        но назойливая реальность бесцеремонно вырвала меня криками: <br />
-        — Ого!
+        It was the most ordinary spring day. I was sitting in the park playing
+        my favorite mobile arcade game. The week of the same and boring quests
+        was ending; all I needed was a little time to gather resources. <br />
         <br />
-        — Что это?
+        Well, not just &quot;a little&quot;... 2 more hours. All for the sake of
+        exploring a new location with top equipment, the best one available at
+        my level. Damn, I was just waiting for this.
         <br />
-        — Мам, смотри какие штучки в небе!
-        <br /> Крики, надо сказать, резонные. Я заблокировал телефон, взглянул
-        на город и… Что это, нахрен, такое?
+        <br />
+        — Wow!
+        <br />
+        — What is this?
+        <br />
+        — Mom, look at these things in the sky!
+        <br />
+        <br />
+        What is the reason they are all yelling about? My phone almost died. Oh
+        well, damn! I shift my gaze from the phone screen to the city, and… What
+        the hell is this?
       </>
     ),
   },
   {
     id: 1,
-    image: "/images/chapter1.jpg",
+    image: "/images/chapter2.jpg",
     chapterNumber: 2,
     title: "Path to Reward",
     description:
@@ -42,7 +49,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: 2,
-    image: "/images/chapter1.jpg",
+    image: "/images/chapter3.jpg",
     chapterNumber: 3,
     title: "REAL-WORLD METAVERSE",
     description:
@@ -64,7 +71,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: 5,
-    image: "/images/chapter1.jpg",
+    image: "/images/chapter3.jpg",
     chapterNumber: 5,
     title: "REAL-WORLD METAVERSE",
     description:
