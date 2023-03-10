@@ -1,9 +1,13 @@
 import React, { useContext, useMemo, useState } from "react";
+import { enqueueSnackbar } from "notistack";
 import { useRouter } from "next/router";
 
 import { UserContext } from "context/userContext";
 
 import s from "./ButtonToInput.module.scss";
+
+const regexp =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 function ButtonToInput() {
   const router = useRouter();
@@ -29,7 +33,12 @@ function ButtonToInput() {
   };
 
   const onGoClick = () => {
+    if (!email.match(regexp)) {
+      enqueueSnackbar({ variant: "error", message: "Email is not valid" });
+      return;
+    }
     setUserEmail(email);
+    enqueueSnackbar({ variant: "success", message: "Email has been sended" });
     router.push("/cards");
   };
 
@@ -39,6 +48,12 @@ function ButtonToInput() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (isOpen) {
+      onGoClick();
+      return;
+    }
+    onExploreClick();
   };
 
   const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,11 +69,7 @@ function ButtonToInput() {
         onChange={onEmailChange}
         placeholder="Enter email to explore"
       />
-      <button
-        type="button"
-        className={s.button}
-        onClick={isOpen ? onGoClick : onExploreClick}
-      >
+      <button type="submit" className={s.button}>
         <span className={buttonTextClassNameClose}>Explore</span>
         <span className={buttonTextClassNameOpen}>Go</span>
       </button>

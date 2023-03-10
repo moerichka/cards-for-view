@@ -7,6 +7,7 @@ import { UserContext } from "context/userContext";
 import HeightSetter from "components/HeightSetter";
 
 import "styles/main.scss";
+import { SnackbarProvider } from "notistack";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [userEmail, setUserEmail] = useState("");
@@ -27,9 +28,11 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 
   return (
-    <UserContext.Provider value={contextValue}>
-      <Component {...pageProps} />
-      <HeightSetter />
-    </UserContext.Provider>
+    <SnackbarProvider>
+      <UserContext.Provider value={contextValue}>
+        <Component {...pageProps} />
+        <HeightSetter />
+      </UserContext.Provider>
+    </SnackbarProvider>
   );
 }
