@@ -112,7 +112,7 @@
   .title {
     font-family: HeadingNow;
     text-transform: uppercase;
-    font-size: rem(70px);
+    font-size: rem(60px);
     line-height: 90%;
 
     @media (max-width: $breakPoint3) {
@@ -228,7 +228,7 @@
 
   .button {
     width: 100%;
-    max-width: rem(144px);
+    max-width: rem(124px);
 
     &.noMobile {
       @media (max-width: $breakPoint3) {

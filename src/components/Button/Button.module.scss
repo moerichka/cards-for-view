@@ -8,14 +8,14 @@
   justify-content: center;
 
   padding: 0 rem(10px);
-  height: rem(70px);
+  height: rem(55px);
   background-color: hsla(32, 100%, 62%, 1);
   color: white;
   border-radius: rem(20px);
   transition: 0.3s;
 
   font-family: HeadingNow;
-  font-size: rem(35px);
+  font-size: rem(30px);
   text-transform: uppercase;
 
   @media (max-width: $breakPoint3) {

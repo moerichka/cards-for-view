@@ -80,7 +80,7 @@
   .title {
     font-family: HeadingNow;
     text-transform: uppercase;
-    font-size: rem(70px);
+    font-size: rem(60px);
     line-height: 90%;
 
     @media (max-width: $breakPoint3) {
@@ -91,7 +91,7 @@
   .description {
     font-family: Manrope;
     font-weight: 600;
-    font-size: rem(20px);
+    font-size: rem(18px);
     line-height: 125%;
 
     @media (max-width: $breakPoint3) {
