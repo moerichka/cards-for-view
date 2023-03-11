@@ -37,8 +37,8 @@ function ButtonToInput() {
       enqueueSnackbar({ variant: "error", message: "Email is not valid" });
       return;
     }
-    // setUserEmail(email);
-    // router.push("/cards");
+    setUserEmail(email);
+    router.push("/cards");
     enqueueSnackbar({ variant: "success", message: "Email has been sended" });
   };
 

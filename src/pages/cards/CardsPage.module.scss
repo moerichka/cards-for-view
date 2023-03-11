@@ -1,4 +1,5 @@
 @import "~/src/styles/variables";
+@import "~/src/styles/functions";
 
 .cards {
   background-color: hsla(218, 57%, 97%, 1);
@@ -8,14 +9,14 @@
   }
 }
 .grid {
-  max-width: 1740px;
-  padding: 0 50px;
+  max-width: rem(1740px);
+  padding: 0 rem(50px);
   margin: 0 auto;
 
   display: grid;
   grid-template-columns:
-    minmax(360px, 432px) minmax(20px, 128px) minmax(700px, 1fr)
-    40px 100px;
+    minmax(rem(360px), rem(432px)) minmax(rem(20px), rem(128px)) minmax(rem(700px), 1fr)
+    rem(40px) rem(100px);
   grid-template-rows: $paddingTop $headerHeight 1fr auto $paddingBottom;
   grid-template-areas:
     ". . chapters . tabs"
@@ -26,7 +27,7 @@
   height: var(--height);
 
   @media (max-width: $breakPoint1) {
-    grid-template-columns: 1fr 40px 100px;
+    grid-template-columns: 1fr rem(40px) rem(100px);
     grid-template-rows: $paddingTop $headerHeight auto auto $paddingBottom;
     grid-template-areas:
       ". . ."
@@ -49,7 +50,7 @@
   }
   @media (max-width: $breakPoint3) {
     grid-template-rows: $paddingTop $headerHeightTablet auto auto $paddingBottom;
-    padding: 0 21px;
+    padding: 0 rem(21px);
   }
 }
 
@@ -57,11 +58,11 @@
   grid-area: header;
   .logoWrapper {
     position: relative;
-    width: 100px;
+    width: rem(100px);
     height: $headerHeight;
 
     @media (max-width: $breakPoint3) {
-      width: 78px;
+      width: rem(78px);
       height: $headerHeightTablet;
     }
   }
@@ -73,40 +74,40 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 50px;
-  gap: 39px;
+  padding-bottom: rem(50px);
+  gap: rem(39px);
 
   .title {
     font-family: HeadingNow;
     text-transform: uppercase;
-    font-size: 70px;
+    font-size: rem(70px);
     line-height: 90%;
 
     @media (max-width: $breakPoint3) {
-      font-size: 46px;
+      font-size: rem(46px);
     }
   }
 
   .description {
     font-family: Manrope;
     font-weight: 600;
-    font-size: 20px;
+    font-size: rem(20px);
     line-height: 125%;
 
     @media (max-width: $breakPoint3) {
-      font-size: 15.5px;
+      font-size: rem(15.5px);
     }
   }
 
   @media (max-width: $breakPoint1) {
-    margin-top: 100px;
-    max-width: 500px;
+    margin-top: rem(100px);
+    max-width: rem(500px);
   }
   @media (max-width: $breakPoint3) {
-    gap: 31px;
-    margin-top: 91px;
+    gap: rem(31px);
+    margin-top: rem(91px);
     padding-bottom: 0;
-    max-width: 300px;
+    max-width: rem(300px);
   }
 }
 
@@ -116,13 +117,13 @@
   flex-direction: column;
   padding-top: $paddingTop;
   padding-bottom: $paddingBottom;
-  gap: 25px;
+  gap: rem(25px);
   height: 100%;
   overflow-y: auto;
 
   @media (max-width: $breakPoint3) {
-    padding-top: 66px;
-    gap: 46px;
+    padding-top: rem(66px);
+    gap: rem(46px);
   }
 }
 
@@ -131,7 +132,7 @@
   margin: auto 0;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: rem(25px);
 
   @media (max-width: $breakPoint1) {
     padding-top: $headerHeight;
@@ -148,7 +149,7 @@
 .footer {
   grid-area: footer;
   width: 100%;
-  max-width: 319px;
+  max-width: rem(319px);
 
   @media (max-width: $breakPoint1) {
     margin: 0 auto;

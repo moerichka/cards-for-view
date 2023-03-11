@@ -42,7 +42,7 @@ body {
   background-color: v.$backGroundColor;
   color: v.$fontColorMain;
   line-height: 1;
-  font-size: 16px;
+  font-size: v.$html-font-size;
   overflow: hidden;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;

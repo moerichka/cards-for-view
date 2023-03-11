@@ -1,3 +1,5 @@
+@import "functions";
+
 @mixin link() {
   position: absolute;
   left: 0;
@@ -8,7 +10,7 @@
 }
 
 @mixin desktop() {
-  @media (min-width: 760px) {
+  @media (min-width: rem(760px)) {
     @content;
   }
 }

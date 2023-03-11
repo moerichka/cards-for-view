@@ -1,31 +1,32 @@
 @import "~/src/styles/mixins";
 @import "~/src/styles/variables";
+@import "~/src/styles/functions";
 
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 0 10px;
-  height: 70px;
+  padding: 0 rem(10px);
+  height: rem(70px);
   background-color: hsla(32, 100%, 62%, 1);
   color: white;
-  border-radius: 20px;
+  border-radius: rem(20px);
   transition: 0.3s;
 
   font-family: HeadingNow;
-  font-size: 35px;
+  font-size: rem(35px);
   text-transform: uppercase;
 
   @media (max-width: $breakPoint3) {
-    height: 46px;
-    border-radius: 13px;
-    font-size: 23px;
+    height: rem(46px);
+    border-radius: rem(13px);
+    font-size: rem(23px);
   }
 
   @include desktop() {
     &:hover {
-      transform: translateY(-2px);
+      transform: translateY(rem(-2px));
     }
   }
 
