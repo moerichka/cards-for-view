@@ -42,8 +42,8 @@ function ButtonToInput() {
       });
       return;
     }
-    setUserEmail(email);
-    router.push("/cards");
+    // setUserEmail(email);
+    // router.push("/cards");
     enqueueSnackbar({
       variant: "trace",
       customTitle: "Successfully",
