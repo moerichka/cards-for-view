@@ -5,9 +5,20 @@ import { useRouter } from "next/router";
 
 import { UserContext } from "context/userContext";
 import HeightSetter from "components/HeightSetter";
+import { SnackbarProvider } from "notistack";
+import SnackBar from "components/SnackBar";
 
 import "styles/main.scss";
-import { SnackbarProvider } from "notistack";
+
+declare module "notistack" {
+  interface VariantOverrides {
+    trace: {
+      customTitle?: React.ReactNode;
+      customMessage?: React.ReactNode;
+      type?: "error" | "default";
+    };
+  }
+}
 
 export default function App({ Component, pageProps }: AppProps) {
   const [userEmail, setUserEmail] = useState("");
@@ -28,7 +39,12 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 
   return (
-    <SnackbarProvider>
+    <SnackbarProvider
+      Components={{
+        trace: SnackBar,
+      }}
+      autoHideDuration={1500}
+    >
       <UserContext.Provider value={contextValue}>
         <Component {...pageProps} />
         <HeightSetter />

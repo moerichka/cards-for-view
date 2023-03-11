@@ -34,12 +34,21 @@ function ButtonToInput() {
 
   const onGoClick = () => {
     if (!email.match(regexp)) {
-      enqueueSnackbar({ variant: "error", message: "Email is not valid" });
+      enqueueSnackbar({
+        variant: "trace",
+        customTitle: "Error",
+        customMessage: "Email is not valid",
+        type: "error",
+      });
       return;
     }
     setUserEmail(email);
     router.push("/cards");
-    enqueueSnackbar({ variant: "success", message: "Email has been sended" });
+    enqueueSnackbar({
+      variant: "trace",
+      customTitle: "Successfully",
+      customMessage: "Email has been sended",
+    });
   };
 
   const onBlur = () => {
