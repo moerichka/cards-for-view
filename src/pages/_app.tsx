@@ -7,6 +7,7 @@ import { UserContext } from "context/userContext";
 import HeightSetter from "components/HeightSetter";
 import { SnackbarProvider } from "notistack";
 import SnackBar from "components/SnackBar";
+import TransitionEffect from "components/TransitionEffect";
 
 import "styles/main.scss";
 
@@ -46,8 +47,10 @@ export default function App({ Component, pageProps }: AppProps) {
       autoHideDuration={1500}
     >
       <UserContext.Provider value={contextValue}>
-        <Component {...pageProps} />
-        <HeightSetter />
+        <TransitionEffect>
+          <Component {...pageProps} />
+          <HeightSetter />
+        </TransitionEffect>
       </UserContext.Provider>
     </SnackbarProvider>
   );
