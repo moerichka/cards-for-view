@@ -1,4 +1,5 @@
 import React, { useContext, useMemo, useState } from "react";
+import MailchimpSubscribe, { EmailFormFields } from "react-mailchimp-subscribe";
 import { enqueueSnackbar } from "notistack";
 import { useRouter } from "next/router";
 
@@ -8,6 +9,8 @@ import s from "./ButtonToInput.module.scss";
 
 const regexp =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAICHIMP_URL || "";
 
 function ButtonToInput() {
   const router = useRouter();
@@ -32,7 +35,7 @@ function ButtonToInput() {
     setIsOpen(true);
   };
 
-  const onGoClick = () => {
+  const onGoClick = (subscribe: (data: EmailFormFields) => void) => {
     if (!email.match(regexp)) {
       enqueueSnackbar({
         variant: "trace",
@@ -44,6 +47,7 @@ function ButtonToInput() {
     }
     // setUserEmail(email);
     // router.push("/cards");
+    subscribe({ EMAIL: email });
     enqueueSnackbar({
       variant: "trace",
       customTitle: "Successfully",
@@ -55,34 +59,43 @@ function ButtonToInput() {
     setIsOpen(false);
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit =
+    (subscribe: (data: EmailFormFields) => void) =>
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    if (isOpen) {
-      onGoClick();
-      return;
-    }
-    onExploreClick();
-  };
+      if (isOpen) {
+        onGoClick(subscribe);
+        return;
+      }
+      onExploreClick();
+    };
 
   const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
   return (
-    <form className={fieldClassName} onSubmit={onSubmit}>
-      <input
-        type="text"
-        className={s.input}
-        value={email}
-        onChange={onEmailChange}
-        placeholder="Enter email to explore"
-      />
-      <button type="submit" className={s.button}>
-        <span className={buttonTextClassNameClose}>Explore</span>
-        <span className={buttonTextClassNameOpen}>Go</span>
-      </button>
-    </form>
+    <MailchimpSubscribe
+      url={MAILCHIMP_URL}
+      render={({ subscribe }) => {
+        return (
+          <form className={fieldClassName} onSubmit={onSubmit(subscribe)}>
+            <input
+              type="text"
+              className={s.input}
+              value={email}
+              onChange={onEmailChange}
+              placeholder="Enter email to explore"
+            />
+            <button type="submit" className={s.button}>
+              <span className={buttonTextClassNameClose}>Explore</span>
+              <span className={buttonTextClassNameOpen}>Go</span>
+            </button>
+          </form>
+        );
+      }}
+    />
   );
 }
 
