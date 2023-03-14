@@ -20,7 +20,6 @@ declare module "notistack" {
     };
   }
 }
-
 export default function App({ Component, pageProps }: AppProps) {
   const [userEmail, setUserEmail] = useState("");
   const router = useRouter();
