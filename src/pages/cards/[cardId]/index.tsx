@@ -1,7 +1,9 @@
-import React, { useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
+
+import { UserContext } from "context/userContext";
 
 import ChapterTab from "components/ChapterTab";
 import { ButtonLink, ButtonRoute } from "components/Button";
@@ -12,6 +14,7 @@ import s from "./CardPage.module.scss";
 
 function CardPage() {
   const router = useRouter();
+  const { userEmail } = useContext(UserContext);
 
   const thisChapter = useMemo(
     () => chapters.find((elem) => elem.id === Number(router.query.cardId)),
@@ -42,6 +45,11 @@ function CardPage() {
 
   if (thisChapter.status !== "available") {
     router.push("/cards");
+    return <div className={s.cardPage} />;
+  }
+
+  if (!userEmail) {
+    router.push("/");
     return <div className={s.cardPage} />;
   }
 

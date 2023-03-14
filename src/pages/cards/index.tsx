@@ -1,5 +1,8 @@
-import React, { useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
+
+import { UserContext } from "context/userContext";
 
 import PoliciesLinks from "components/PoliciesLinks";
 import ChapterCard from "components/ChapterCard";
@@ -10,6 +13,8 @@ import { chapters } from "data/chapters";
 import s from "./CardsPage.module.scss";
 
 function CardsPage() {
+  const router = useRouter();
+  const { userEmail } = useContext(UserContext);
   const cardRefArray = useRef<HTMLDivElement[] | null[]>([]);
 
   const onScroll = (indexOfChapter: number) => () => {
@@ -17,6 +22,12 @@ function CardsPage() {
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    if (!userEmail) {
+      router.push("/");
+    }
+  }, [userEmail, router]);
 
   return (
     <div className={s.cards}>

@@ -46,6 +46,7 @@ function ButtonToInput() {
       return;
     }
     setUserEmail(email);
+    localStorage.setItem("userEmail", email);
     router.push("/cards");
     // subscribe({ EMAIL: email });
     enqueueSnackbar({

@@ -1,7 +1,10 @@
-import { useState, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useMemo, useEffect, useContext } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Loader from "react-loaders";
+
+import { UserContext } from "context/userContext";
 
 import ButtonToInput from "components/ButtonToInput";
 import PoliciesLinks from "components/PoliciesLinks";
@@ -11,9 +14,12 @@ import s from "styles/home.module.scss";
 import cubeImage from "../../public/images/cube.png";
 import backgroundImage from "../../public/images/skyBanner.jpg";
 
+
 const EXPECTED_LOADED_IMAGES_COUNT = 2;
 
 export default function Home() {
+  const router = useRouter();
+  const { userEmail } = useContext(UserContext);
   const [loadedImagesCount, setLoadedImagesCount] = useState<number>(0);
   const [isHiding, setIsHiding] = useState<boolean>(false);
 
@@ -40,6 +46,11 @@ export default function Home() {
       }`,
     [isAllImagesLoaded, isHiding],
   );
+
+  if (userEmail) {
+    router.push("/cards");
+    return <div className={s.bannerPage} />;
+  }
 
   return (
     <>

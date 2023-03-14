@@ -22,13 +22,6 @@ declare module "notistack" {
 }
 export default function App({ Component, pageProps }: AppProps) {
   const [userEmail, setUserEmail] = useState("");
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!userEmail) {
-      router.push("/");
-    }
-  }, [userEmail, router]);
 
   const contextValue = useMemo(
     () => ({
@@ -37,6 +30,10 @@ export default function App({ Component, pageProps }: AppProps) {
     }),
     [userEmail],
   );
+
+  useEffect(() => {
+    setUserEmail(localStorage.getItem("userEmail") || "");
+  }, []);
 
   return (
     <SnackbarProvider
