@@ -44,11 +44,11 @@ function CardPage() {
       <div className={s.grid}>
         <div className={s.header}>
           <div className={s.logoWrapper}>
-            <Image
-              fill
+            <img
+              // fill
               src="/images/logoBlue.png"
               alt="Logo"
-              style={{ objectFit: "contain" }}
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
             />
             <Link href="/cards" className="linkFill" />
           </div>
@@ -66,10 +66,10 @@ function CardPage() {
         <div className={s.chapter}>
           <div className={s.chapterBanner}>
             <div className={s.imageWrapper}>
-              <Image
+              <img
                 src={thisChapter.image}
-                style={{ objectFit: "cover" }}
-                fill
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                // fill
                 alt=""
               />
             </div>

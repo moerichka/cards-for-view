@@ -19,7 +19,7 @@ function ChapterCard({ chapter }: Props) {
       <div className={s.imageWrapper}>
         <img
           src={chapter.image}
-          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
           alt=""
         />
       </div>
@@ -27,10 +27,9 @@ function ChapterCard({ chapter }: Props) {
         {chapter.status === "locked" ? (
           <>
             <div className={s.lockWrapper}>
-              <Image
+              <img
                 src="/images/lockWhite.svg"
-                style={{ objectFit: "cover" }}
-                fill
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 alt=""
               />
             </div>
