@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,37 +21,22 @@ function CardPage() {
     [router],
   );
 
+  useEffect(() => {
+    if (!thisChapter) {
+      router.push("/cards");
+    }
+
+    if (thisChapter?.status !== "available") {
+      router.push("/cards");
+    }
+
+    if (!userEmail) {
+      router.push("/");
+    }
+  }, [router, thisChapter, userEmail]);
+
   if (!thisChapter) {
-    router.push("/cards");
-    return (
-      <div className={s.cardPage}>
-        <div className={s.container}>
-          <div className={s.grid}>
-            <div className={s.header}>
-              <div className={s.logoWrapper}>
-                <Image
-                  fill
-                  src="/images/logoBlue.png"
-                  alt="Logo"
-                  style={{ objectFit: "contain" }}
-                />
-                <Link href="/cards" className="linkFill" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (thisChapter.status !== "available") {
-    router.push("/cards");
-    return <div className={s.cardPage} />;
-  }
-
-  if (!userEmail) {
-    router.push("/");
-    return <div className={s.cardPage} />;
+    return null;
   }
 
   return (
