@@ -7,7 +7,7 @@ import s from "./TransitionEffect.module.scss";
 const variants = {
   in: {
     opacity: 1,
-    scale: 1,
+    // scale: 1,
     // y: 0,
     // x: 0,
     transition: {
@@ -18,7 +18,7 @@ const variants = {
   },
   out: {
     opacity: 0,
-    scale: 0.9,
+    // scale: 0.9,
     // y: 40,
     // x: 100,
     transition: {
