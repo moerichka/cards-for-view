@@ -34,11 +34,11 @@ function CardsPage() {
       <div className={s.grid}>
         <div className={s.header}>
           <div className={s.logoWrapper}>
-            <Image
-              fill
+            <img
+              // fill
               src="/images/logoBlue.png"
               alt="Logo"
-              style={{ objectFit: "contain" }}
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
             />
           </div>
         </div>

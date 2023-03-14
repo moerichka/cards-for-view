@@ -17,7 +17,11 @@ function ChapterCard({ chapter }: Props) {
         <div className={s.chapterNumber}>Chapter {chapter.chapterNumber}</div>
       )}
       <div className={s.imageWrapper}>
-        <Image src={chapter.image} style={{ objectFit: "cover" }} fill alt="" />
+        <img
+          src={chapter.image}
+          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+          alt=""
+        />
       </div>
       <div className={s.title}>
         {chapter.status === "locked" ? (
