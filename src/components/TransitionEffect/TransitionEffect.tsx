@@ -2,6 +2,8 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 
+import s from "./TransitionEffect.module.scss";
+
 const variants = {
   in: {
     opacity: 1,
@@ -9,6 +11,7 @@ const variants = {
     // y: 0,
     // x: 0,
     transition: {
+      type: "spring",
       duration: 0.5,
       delay: 0.2,
     },
@@ -19,6 +22,7 @@ const variants = {
     // y: 40,
     // x: 100,
     transition: {
+      type: "spring",
       duration: 0.5,
     },
   },
@@ -32,7 +36,7 @@ function TransitionEffect({ children }: { children: React.ReactNode }) {
   const { asPath } = useRouter();
 
   return (
-    <div className="effect-1">
+    <div className={s.effect}>
       <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={asPath}

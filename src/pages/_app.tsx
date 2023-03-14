@@ -48,8 +48,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <UserContext.Provider value={contextValue}>
         <TransitionEffect>
           <Component {...pageProps} />
-          <HeightSetter />
         </TransitionEffect>
+        <HeightSetter />
       </UserContext.Provider>
     </SnackbarProvider>
   );
