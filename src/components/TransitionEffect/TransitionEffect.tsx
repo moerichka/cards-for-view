@@ -13,7 +13,6 @@ const variants = {
     transition: {
       type: "spring",
       duration: 0.5,
-      delay: 0.2,
     },
   },
   out: {
@@ -24,6 +23,7 @@ const variants = {
     transition: {
       type: "spring",
       duration: 0.5,
+      delay: 0.2,
     },
   },
 };

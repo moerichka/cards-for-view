@@ -22,6 +22,7 @@ function CardPage() {
   );
 
   if (!thisChapter) {
+    router.push("/cards");
     return (
       <div className={s.cardPage}>
         <div className={s.container}>
