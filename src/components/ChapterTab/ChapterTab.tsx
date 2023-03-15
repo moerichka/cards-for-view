@@ -1,7 +1,8 @@
 import React from "react";
-import Image from "next/image";
 
 import { Chapter } from "types/chapter";
+
+import lockImg from "images/lockWhite.svg";
 
 import s from "./ChapterTab.module.scss";
 
@@ -18,8 +19,8 @@ function ChapterTab({ chapter }: Props) {
       {chapter.status === "soon" && <div className={s.date}>Soon</div>}
       {chapter.status === "locked" && (
         <div className={s.date}>
-          <Image
-            src="/images/lockWhite.svg"
+          <img
+            src={lockImg}
             width={22.5}
             height={30}
             style={{ objectFit: "cover" }}
@@ -33,11 +34,11 @@ function ChapterTab({ chapter }: Props) {
       {chapter.image && chapter.status === "available" && (
         <>
           <div className={s.imageWrapper}>
-            <Image
+            <img
               src={chapter.image}
               alt=""
               style={{ objectFit: "cover" }}
-              fill
+              className="fill"
             />
           </div>
           <div className={s.background} />

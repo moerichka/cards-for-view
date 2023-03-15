@@ -1,11 +1,14 @@
 /* eslint-disable import/prefer-default-export */
-
+import React from "react";
 import { Chapter } from "types/chapter";
+
+import chapter1Image from "images/chapter2.jpg";
+import chapter2Image from "images/chapter3.jpg";
 
 export const chapters: Chapter[] = [
   {
     id: 0,
-    image: "/images/chapter3.jpg",
+    image: chapter2Image,
     chapterNumber: 1,
     title: "Start of the Adventure",
     description:
@@ -38,7 +41,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: 1,
-    image: "/images/chapter2.jpg",
+    image: chapter1Image,
     chapterNumber: 2,
     title: "Path to Reward",
     description:
@@ -49,7 +52,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: 2,
-    image: "/images/chapter3.jpg",
+    image: chapter2Image,
     chapterNumber: 3,
     title: "REAL-WORLD METAVERSE",
     description:
@@ -60,7 +63,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: 3,
-    image: "/images/chapter2.jpg",
+    image: chapter1Image,
     chapterNumber: 4,
     title: "REAL-WORLD METAVERSE",
     description:
@@ -71,7 +74,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: 5,
-    image: "/images/chapter3.jpg",
+    image: chapter2Image,
     chapterNumber: 5,
     title: "REAL-WORLD METAVERSE",
     description:

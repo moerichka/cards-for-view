@@ -1,13 +1,11 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import { useEffect, useMemo, useState } from "react";
-import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
+import React, { useEffect, useState, useMemo } from "react";
+import { SnackbarProvider } from "notistack";
+import { BrowserRouter } from "react-router-dom";
 
 import { UserContext } from "context/userContext";
 import HeightSetter from "components/HeightSetter";
-import { SnackbarProvider } from "notistack";
 import SnackBar from "components/SnackBar";
-import TransitionEffect from "components/TransitionEffect";
+import Router from "./Router";
 
 import "styles/main.scss";
 
@@ -20,7 +18,7 @@ declare module "notistack" {
     };
   }
 }
-export default function App({ Component, pageProps }: AppProps) {
+function App() {
   const [userEmail, setUserEmail] = useState("");
 
   const contextValue = useMemo(
@@ -43,11 +41,13 @@ export default function App({ Component, pageProps }: AppProps) {
       autoHideDuration={1500}
     >
       <UserContext.Provider value={contextValue}>
-        <TransitionEffect>
-          <Component {...pageProps} />
-        </TransitionEffect>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
         <HeightSetter />
       </UserContext.Provider>
     </SnackbarProvider>
   );
 }
+
+export default App;

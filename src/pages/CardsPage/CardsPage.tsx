@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
 
 import { UserContext } from "context/userContext";
 
@@ -10,10 +8,11 @@ import ChapterTab from "components/ChapterTab";
 
 import { chapters } from "data/chapters";
 
+import logoImage from "images/logoBlue.png";
+
 import s from "./CardsPage.module.scss";
 
 function CardsPage() {
-  const router = useRouter();
   const { userEmail } = useContext(UserContext);
   const cardRefArray = useRef<HTMLDivElement[] | null[]>([]);
 
@@ -23,22 +22,16 @@ function CardsPage() {
     });
   };
 
-  useEffect(() => {
-    if (!userEmail) {
-      router.push("/");
-    }
-  }, [userEmail, router]);
-
   return (
     <div className={s.cards}>
       <div className={s.grid}>
         <div className={s.header}>
           <div className={s.logoWrapper}>
             <img
-              // fill
-              src="/images/logoBlue.png"
+              src={logoImage}
               alt="Logo"
-              style={{ width: "100%", height: "100%", objectFit: "contain" }}
+              style={{ objectFit: "contain" }}
+              className="fill"
             />
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React, { useContext, useMemo, useState } from "react";
 import MailchimpSubscribe, { EmailFormFields } from "react-mailchimp-subscribe";
 import { enqueueSnackbar } from "notistack";
-import { useRouter } from "next/router";
+import { useNavigate } from "react-router-dom";
 
 import { UserContext } from "context/userContext";
 
@@ -13,7 +13,7 @@ const regexp =
 const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAICHIMP_URL || "";
 
 function ButtonToInput() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const { setUserEmail } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
@@ -47,8 +47,8 @@ function ButtonToInput() {
     }
     setUserEmail(email);
     localStorage.setItem("userEmail", email);
-    router.push("/cards");
-    // subscribe({ EMAIL: email });
+    navigate("/cards");
+    subscribe({ EMAIL: email });
     enqueueSnackbar({
       variant: "trace",
       customTitle: "Successfully",

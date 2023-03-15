@@ -2,7 +2,7 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/button-has-type */
 import React from "react";
-import Link, { LinkProps } from "next/link";
+import { LinkProps, Link } from "react-router-dom";
 
 import s from "./Button.module.scss";
 

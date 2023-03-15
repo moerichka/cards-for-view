@@ -1,8 +1,9 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 import { Chapter } from "types/chapter";
+
+import lockImg from "images/lockWhite.svg";
 
 import s from "./ChapterCard.module.scss";
 
@@ -19,8 +20,9 @@ function ChapterCard({ chapter }: Props) {
       <div className={s.imageWrapper}>
         <img
           src={chapter.image}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          style={{ objectFit: "cover" }}
           alt=""
+          className="fill"
         />
       </div>
       <div className={s.title}>
@@ -28,9 +30,10 @@ function ChapterCard({ chapter }: Props) {
           <>
             <div className={s.lockWrapper}>
               <img
-                src="/images/lockWhite.svg"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                src={lockImg}
+                style={{ objectFit: "cover" }}
                 alt=""
+                className="fill"
               />
             </div>
             <span>locked</span>
@@ -46,7 +49,7 @@ function ChapterCard({ chapter }: Props) {
       </div>
       {chapter.status === "available" && (
         <Link
-          href={`/cards/${chapter.id}`}
+          to={`/cards/${chapter.id}`}
           className="linkFill"
           style={{ zIndex: 5 }}
         />

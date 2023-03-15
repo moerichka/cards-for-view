@@ -1,13 +1,13 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/router";
+import { useLocation } from "react-router-dom";
 
 import s from "./TransitionEffect.module.scss";
 
 const variants = {
   in: {
     opacity: 1,
-    // scale: 1,
+    scale: 1,
     // y: 0,
     // x: 0,
     transition: {
@@ -17,7 +17,7 @@ const variants = {
   },
   out: {
     opacity: 0,
-    // scale: 0.9,
+    scale: 0.9,
     // y: 40,
     // x: 100,
     transition: {
@@ -33,13 +33,13 @@ const variants = {
  * https://letsbuildui.dev/articles/animated-page-transitions-in-nextjs
  */
 function TransitionEffect({ children }: { children: React.ReactNode }) {
-  const { asPath } = useRouter();
+  const location = useLocation();
 
   return (
     <div className={s.effect}>
       <AnimatePresence initial={false} mode="wait">
         <motion.div
-          key={asPath}
+          key={location.pathname}
           variants={variants}
           animate="in"
           initial="out"
