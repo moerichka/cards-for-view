@@ -1,0 +1,101 @@
+@use "~/src/styles/variables" as v;
+
+.bannerPage {
+  width: 100%;
+  height: var(--height, 100vh);
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.centerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  max-height: calc(var(--height, 100vh) - 20%);
+}
+
+.logoWrapper {
+  position: relative;
+  width: 116px;
+  height: 68px;
+}
+
+.cube {
+  position: relative;
+  width: calc(100vw - 80px);
+  aspect-ratio: 1;
+  right: 1px;
+  max-width: 340px;
+  max-height: 373px;
+  animation-name: floating;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  margin-top: 35px;
+  margin-bottom: 45px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 100%;
+  max-width: 460px;
+  padding: 0 20px;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+.loadingStub{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsla(204, 71%, 62%, 0.95);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+
+  &.hiding{
+    opacity: 0;
+    pointer-events: 0;
+  }
+
+  &.hidden:not(.hiding){
+    display: none;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: 0;
+  }
+}
+.loaderWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

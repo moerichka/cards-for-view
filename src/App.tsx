@@ -1,25 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState, useMemo } from "react";
+import { SnackbarProvider } from "notistack";
+import { BrowserRouter } from "react-router-dom";
 
+import { UserContext } from "context/userContext";
+import HeightSetter from "components/HeightSetter";
+import SnackBar from "components/SnackBar";
+import Router from "./Router";
+
+import "styles/main.scss";
+
+declare module "notistack" {
+  interface VariantOverrides {
+    trace: {
+      customTitle?: React.ReactNode;
+      customMessage?: React.ReactNode;
+      type?: "error" | "default";
+    };
+  }
+}
 function App() {
+  const [userEmail, setUserEmail] = useState("");
+
+  const contextValue = useMemo(
+    () => ({
+      userEmail,
+      setUserEmail,
+    }),
+    [userEmail],
+  );
+
+  useEffect(() => {
+    setUserEmail(localStorage.getItem("userEmail") || "");
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SnackbarProvider
+      Components={{
+        trace: SnackBar,
+      }}
+      autoHideDuration={1500}
+    >
+      <UserContext.Provider value={contextValue}>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+        <HeightSetter />
+      </UserContext.Provider>
+    </SnackbarProvider>
   );
 }
 

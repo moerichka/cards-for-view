@@ -1,0 +1,150 @@
+@import "~/src/styles/variables";
+@import "~/src/styles/functions";
+
+.chapterCard {
+  width: 100%;
+  height: rem(400px);
+  min-height: rem(400px);
+  overflow: hidden;
+  border-radius: rem(30px);
+  position: relative;
+  color: white;
+  opacity: 0;
+  animation: showing 0.5s forwards;
+
+  @media (max-width: $breakPoint3) {
+    height: rem(252px);
+    min-height: rem(252px);
+  }
+}
+
+@keyframes showing {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.imageWrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.title {
+  position: absolute;
+  bottom: rem(36px);
+  left: rem(58px);
+  max-width: rem(245px);
+  font-size: rem(45px);
+  line-height: 90%;
+  font-family: HeadingNow;
+  text-transform: uppercase;
+  z-index: 4;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(11px);
+
+  @media (max-width: $breakPoint3) {
+    font-size: rem(31.5px);
+    bottom: rem(26px);
+    left: rem(17px);
+  }
+}
+
+.lockWrapper {
+  width: rem(30px);
+  height: rem(40px);
+  position: relative;
+
+  @media (max-width: $breakPoint3) {
+    width: rem(20px);
+    height: rem(27px);
+  }
+}
+
+.chapterNumber {
+  position: absolute;
+  top: rem(54px);
+  right: rem(58px);
+  line-height: 90%;
+  font-family: HeadingNow;
+  font-size: rem(30px);
+  text-transform: uppercase;
+  z-index: 4;
+
+  @media (max-width: $breakPoint3) {
+    font-size: rem(21.5px);
+    top: rem(21px);
+    left: rem(17px);
+  }
+}
+
+.description {
+  position: absolute;
+  left: rem(60px);
+  bottom: rem(35px);
+  z-index: 4;
+  max-width: rem(416px);
+}
+
+.dateWrapper {
+  position: absolute;
+  width: rem(100px);
+  height: rem(100px);
+  right: rem(60px);
+  bottom: rem(35px);
+  z-index: 4;
+  overflow: hidden;
+
+  @media (max-width: $breakPoint3) {
+    right: rem(22px);
+    top: rem(22px);
+    bottom: unset;
+    width: rem(75px);
+    height: rem(75px);
+  }
+}
+
+.date {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: HeadingNow;
+  font-size: rem(32px);
+  text-transform: uppercase;
+
+  background-color: hsla(0, 0%, 100%, 0.3);
+  backdrop-filter: blur(rem(25px));
+  border-radius: rem(20px);
+
+  @media (max-width: $breakPoint3) {
+    font-size: rem(21px);
+    border-radius: rem(15px);
+  }
+}
+
+.backgroundBlur {
+  position: absolute;
+  inset: 0 0 0 0;
+  z-index: 2;
+  background: hsla(208, 15%, 46%, 0.25);
+  backdrop-filter: blur(rem(15px));
+}
+.backgroundMatte {
+  position: absolute;
+  inset: 0 0 0 0;
+  z-index: 2;
+  background-color: hsla(211, 47%, 83%, 0.8);
+  backdrop-filter: blur(rem(50px));
+}

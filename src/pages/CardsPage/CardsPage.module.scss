@@ -1,0 +1,161 @@
+@import "~/src/styles/variables";
+@import "~/src/styles/functions";
+
+.cards {
+  background-color: hsla(218, 57%, 97%, 1);
+  height: var(--height);
+  @media (max-width: $breakPoint1) {
+    overflow-y: auto;
+  }
+}
+.grid {
+  max-width: rem(1740px);
+  padding: 0 rem(50px);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns:
+    minmax(rem(360px), rem(432px)) minmax(rem(20px), rem(128px)) minmax(rem(700px), 1fr)
+    rem(40px) rem(100px);
+  grid-template-rows: $paddingTop $headerHeight 1fr auto $paddingBottom;
+  grid-template-areas:
+    ". . chapters . tabs"
+    "header . chapters . tabs"
+    "titlePart . chapters . tabs"
+    "footer . chapters . tabs"
+    ". . chapters . tabs";
+  height: var(--height);
+
+  @media (max-width: $breakPoint1) {
+    grid-template-columns: 1fr rem(40px) rem(100px);
+    grid-template-rows: $paddingTop $headerHeight auto auto $paddingBottom;
+    grid-template-areas:
+      ". . ."
+      "header header header"
+      "titlePart titlePart titlePart"
+      "chapters . tabs"
+      "footer footer footer";
+    height: auto;
+  }
+  @media (max-width: $breakPoint2) {
+    grid-template-columns: 1fr;
+    grid-template-rows: $paddingTop $headerHeight auto auto $paddingBottom;
+    grid-template-areas:
+      "."
+      "header"
+      "titlePart"
+      "chapters"
+      "footer"
+      ".";
+  }
+  @media (max-width: $breakPoint3) {
+    grid-template-rows: $paddingTop $headerHeightTablet auto auto $paddingBottom;
+    padding: 0 rem(21px);
+  }
+}
+
+.header {
+  grid-area: header;
+  .logoWrapper {
+    position: relative;
+    width: rem(100px);
+    height: $headerHeight;
+
+    @media (max-width: $breakPoint3) {
+      width: rem(78px);
+      height: $headerHeightTablet;
+    }
+  }
+}
+
+.titlePart {
+  grid-area: titlePart;
+  color: hsla(208, 15%, 46%, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: rem(50px);
+  gap: rem(39px);
+
+  .title {
+    font-family: HeadingNow;
+    text-transform: uppercase;
+    font-size: rem(60px);
+    line-height: 90%;
+
+    @media (max-width: $breakPoint3) {
+      font-size: rem(46px);
+    }
+  }
+
+  .description {
+    font-family: Manrope;
+    font-weight: 600;
+    font-size: rem(18px);
+    line-height: 125%;
+
+    @media (max-width: $breakPoint3) {
+      font-size: rem(15.5px);
+    }
+  }
+
+  @media (max-width: $breakPoint1) {
+    margin-top: rem(100px);
+    max-width: rem(500px);
+  }
+  @media (max-width: $breakPoint3) {
+    gap: rem(31px);
+    margin-top: rem(91px);
+    padding-bottom: 0;
+    max-width: rem(300px);
+  }
+}
+
+.chapters {
+  grid-area: chapters;
+  display: flex;
+  flex-direction: column;
+  padding-top: $paddingTop;
+  padding-bottom: $paddingBottom;
+  gap: rem(25px);
+  height: 100%;
+  overflow-y: auto;
+
+  @media (max-width: $breakPoint3) {
+    padding-top: rem(66px);
+    gap: rem(46px);
+  }
+}
+
+.tabs {
+  grid-area: tabs;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(25px);
+
+  @media (max-width: $breakPoint1) {
+    padding-top: $headerHeight;
+    height: min-content;
+    margin: 0;
+    position: sticky;
+    top: 0;
+  }
+  @media (max-width: $breakPoint2) {
+    display: none;
+  }
+}
+
+.footer {
+  grid-area: footer;
+  width: 100%;
+  max-width: rem(319px);
+
+  @media (max-width: $breakPoint1) {
+    margin: 0 auto;
+  }
+
+  .link {
+    color: hsla(209, 51%, 24%, 1);
+  }
+}

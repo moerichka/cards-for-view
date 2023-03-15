@@ -1,0 +1,20 @@
+@import "functions";
+
+$html-font-size: 15px;
+
+// $backGroundColor: hsla(247, 15%, 12%, 1);
+$backGroundColor: #61b4e6;
+$fontColorMain: hsla(275, 20%, 90%, 1);
+$outstandingColor: hsla(32, 100%, 62%, 1);
+$buttonNonActive: hsla(275, 20%, 90%, 0.1);
+$buttonActive: hsla(266, 100%, 69%, 1);
+
+$breakPoint1: rem(1350px);
+$breakPoint2: rem(870px);
+$breakPoint3: rem(620px);
+$breakPoint4: rem(520px);
+
+$headerHeight: rem(58px);
+$headerHeightTablet: rem(45px);
+$paddingTop: rem(57.5px);
+$paddingBottom: rem(42px);
