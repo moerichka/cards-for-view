@@ -127,6 +127,8 @@
   background-color: hsla(0, 0%, 100%, 0.3);
   backdrop-filter: blur(rem(25px));
   border-radius: rem(20px);
+  -webkit-border-radius: rem(20px);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 
   @media (max-width: $breakPoint3) {
     font-size: rem(21px);
@@ -140,6 +142,8 @@
   z-index: 2;
   background: hsla(208, 15%, 46%, 0.25);
   backdrop-filter: blur(rem(15px));
+  border-radius: rem(20px);
+  -webkit-border-radius: rem(20px);
 }
 .backgroundMatte {
   position: absolute;
@@ -147,6 +151,8 @@
   z-index: 2;
   background-color: hsla(211, 47%, 83%, 0.8);
   backdrop-filter: blur(rem(50px));
+  border-radius: rem(20px);
+  -webkit-border-radius: rem(20px);
 }
 .backgroundSkeleton {
   position: absolute;
@@ -155,16 +161,18 @@
   // background-color: hsla(211, 47%, 83%, 1);
   backdrop-filter: blur(rem(50px));
   animation: skeleton 4s infinite ease-in-out;
+  border-radius: rem(20px);
+  -webkit-border-radius: rem(20px);
 }
 
 @keyframes skeleton {
-  0%{
+  0% {
     background-color: hsla(211, 47%, 83%, 1);
   }
-  50%{
+  50% {
     background-color: hsla(211, 47%, 93%, 1);
   }
-  100%{
+  100% {
     background-color: hsla(211, 47%, 83%, 1);
   }
 }
