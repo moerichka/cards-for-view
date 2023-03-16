@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { Chapter } from "types/chapter";
 
@@ -12,6 +13,8 @@ interface Props {
 }
 
 function ChapterCard({ chapter }: Props) {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   return (
     <div className={s.chapterCard} id={`${chapter.id}`}>
       {chapter.chapterNumber && (
@@ -23,6 +26,7 @@ function ChapterCard({ chapter }: Props) {
           style={{ objectFit: "cover" }}
           alt=""
           className="fill"
+          onLoad={() => setIsImageLoaded(true)}
         />
       </div>
       <div className={s.title}>
@@ -56,6 +60,15 @@ function ChapterCard({ chapter }: Props) {
       )}
       {chapter.status === "soon" && <div className={s.backgroundBlur} />}
       {chapter.status === "locked" && <div className={s.backgroundMatte} />}
+      <AnimatePresence initial={false}>
+        {!isImageLoaded && (
+          <motion.div
+            key={`${chapter.id}-chapter`}
+            exit={{ opacity: 0 }}
+            className={s.backgroundSkeleton}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
