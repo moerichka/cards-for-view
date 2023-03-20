@@ -13,7 +13,7 @@ export const chapters: Chapter[] = [
     title: "Start of the Adventure",
     description:
       "The new AR Game on a real world map with a different Social-Fi and Game-Fi mechanics",
-    date: "13 mar",
+    date: "21 mar",
     status: "available",
     text: (
       <>
