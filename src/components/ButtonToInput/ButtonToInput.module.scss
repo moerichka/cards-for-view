@@ -5,29 +5,30 @@
   border-radius: rem(25px);
   position: relative;
   height: rem(70px);
-  min-width: rem(150px);
+  width: rem(150px);
+  max-width: 95vw;
   transition: 0.3s;
   overflow: hidden;
 
   &.active {
     background-color: white;
-    min-width: rem(347px);
+    width: rem(347px);
 
     .button {
-      min-width: rem(96px);
+      width: rem(96px);
     }
   }
 
   @media (max-width: rem(400px)) {
-    height: rem(50px);
-    min-width: rem(120px);
+    height: rem(60px);
+    width: rem(120px);
     border-radius: rem(20px);
   }
 
   .button {
     height: 100%;
     // width: 100%;
-    min-width: rem(150px);
+    width: rem(150px);
     color: white;
     border-radius: rem(25px);
     overflow: hidden;
@@ -37,6 +38,11 @@
     top: 50%;
     transform: translateY(-50%);
     transition: 0.3s;
+
+    @media (max-width: rem(400px)) {
+      border-radius: rem(20px);
+      width: rem(120px);
+    }
   }
 }
 
@@ -70,6 +76,6 @@
   }
 
   @media (max-width: rem(400px)) {
-    font-size: rem(30px);
+    font-size: rem(25px);
   }
 }
