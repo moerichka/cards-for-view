@@ -69,11 +69,31 @@ export default function Home() {
             className="fill"
           />
         </div>
-        <ButtonToInput />
+        <div className={s.buttonPanel}>
+          <ButtonToInput />
+          <div className={s.termsOfUseWrapper}>
+            <div className={s.termsOfUse}>
+              By leaving your email address, you agree to our service&apos;s{" "}
+              <a
+                href="https://mixr.gitbook.io/en/mixr/legal/privacy"
+                className={s.link}
+              >
+                Privacy policy
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://mixr.gitbook.io/ru/mixr/legal/terms"
+                className={s.link}
+              >
+                Terms of use
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className={s.footer}>
+      {/* <div className={s.footer}>
         <PoliciesLinks />
-      </div>
+      </div> */}
       <div className={s.background}>
         <img
           src={backgroundImage}
