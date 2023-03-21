@@ -2,13 +2,13 @@
 import React from "react";
 import { Chapter } from "types/chapter";
 
-import chapter1Image from "images/chapter2.jpg";
-import chapter2Image from "images/chapter3.jpg";
+import chapter1Image from "images/chapter1.jpg";
+import chapter2Image from "images/chapter2.jpg";
 
 export const chapters: Chapter[] = [
   {
     id: 0,
-    image: chapter2Image,
+    image: chapter1Image,
     chapterNumber: 1,
     title: "Start of the Adventure",
     description:
@@ -41,7 +41,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: 1,
-    image: chapter1Image,
+    image: chapter2Image,
     chapterNumber: 2,
     title: "Path to Reward",
     description:
