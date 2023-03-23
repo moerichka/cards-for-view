@@ -123,6 +123,18 @@
   max-width: 325px;
   width: 100%;
   padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 13px;
+  transition: 0.3s;
+  pointer-events: none;
+  opacity: 0;
+
+  &.shown{
+    pointer-events: all;
+    opacity: 1;
+  }
 }
 
 .termsOfUse {
@@ -136,5 +148,31 @@
   .link {
     color: inherit;
     text-decoration: underline;
+  }
+}
+
+.checkbox{
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  background-color: hsla(0, 0%, 100%, 0.5);
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+
+  .check{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+    opacity: 0;
+    transition: 0.3s;
+
+    &.active{
+      opacity: 1;
+    }
   }
 }

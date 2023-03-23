@@ -38,7 +38,7 @@ function App() {
       Components={{
         trace: SnackBar,
       }}
-      autoHideDuration={1500}
+      autoHideDuration={2000}
     >
       <UserContext.Provider value={contextValue}>
         <BrowserRouter>

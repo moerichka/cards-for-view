@@ -12,10 +12,15 @@ const regexp =
 
 const MAILCHIMP_URL = process.env.REACT_APP_MAILCHIMP_URL || "";
 
-function ButtonToInput() {
+interface Props {
+  isOpen: boolean;
+  isTermsChecked: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function ButtonToInput({ isOpen, isTermsChecked, setIsOpen }: Props) {
   const navigate = useNavigate();
   const { setUserEmail } = useContext(UserContext);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
 
   const fieldClassName = useMemo(
@@ -41,6 +46,15 @@ function ButtonToInput() {
         variant: "trace",
         customTitle: "Error",
         customMessage: "Email is not valid",
+        type: "error",
+      });
+      return;
+    }
+    if (!isTermsChecked) {
+      enqueueSnackbar({
+        variant: "trace",
+        customTitle: "Error",
+        customMessage: "No agreement with terms of use",
         type: "error",
       });
       return;

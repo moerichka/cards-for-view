@@ -15,15 +15,18 @@ import PoliciesLinks from "components/PoliciesLinks";
 import cubeImage from "images/cube.png";
 import backgroundImage from "images/skyBanner.jpg";
 import logoImage from "images/logo.png";
+import checkImage from "images/check.svg";
 
 import s from "./BannerPage.module.scss";
 
 const EXPECTED_LOADED_IMAGES_COUNT = 2;
 
 export default function Home() {
-  const { userEmail } = useContext(UserContext);
+  const [isTermsChecked, setIsTermsChecked] = useState(false);
   const [loadedImagesCount, setLoadedImagesCount] = useState<number>(0);
   const [isHiding, setIsHiding] = useState<boolean>(false);
+
+  const [isOpenInput, setIsOpenInput] = useState<boolean>(false);
 
   const incrementLoadedImagesCount = useCallback(
     () => setLoadedImagesCount((i) => i + 1),
@@ -49,6 +52,10 @@ export default function Home() {
     [isAllImagesLoaded, isHiding],
   );
 
+  const onCheckBoxChange = () => {
+    setIsTermsChecked((prev) => !prev);
+  };
+
   return (
     <div className={s.bannerPage}>
       <div className={s.centerContent}>
@@ -70,8 +77,25 @@ export default function Home() {
           />
         </div>
         <div className={s.buttonPanel}>
-          <ButtonToInput />
-          <div className={s.termsOfUseWrapper}>
+          <ButtonToInput
+            isOpen={isOpenInput}
+            setIsOpen={setIsOpenInput}
+            isTermsChecked={isTermsChecked}
+          />
+          <div
+            className={`${s.termsOfUseWrapper} ${isOpenInput ? s.shown : ""}`}
+          >
+            <button
+              type="button"
+              onClick={onCheckBoxChange}
+              className={s.checkbox}
+            >
+              <img
+                src={checkImage}
+                alt=""
+                className={`${s.check} ${isTermsChecked ? s.active : ""}`}
+              />
+            </button>
             <div className={s.termsOfUse}>
               By leaving your email address, you agree to our service&apos;s{" "}
               <a
